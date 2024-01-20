@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>القواعد بالترتيب و التلخيص</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3297e0a5-0008-4d6e-8708-479fe5564bc9" class="page sans"><header><h1 class="page-title">القواعد بالترتيب و التلخيص</h1><p class="page-description"></p></header><div class="page-body"><p id="7ffb96c8-7143-4bfc-b93e-c5f9a3e55088" class="">
+</p><p id="7c7800b3-ec62-49f7-8586-7902eb746f98" class="">1 - لا تظهر تفوقك على وليك أو رئيسك.<br/>القصة :<br/>نيكولاس فوكيه وزير خزانة لويس الرابع عشر والحفلة<br/>ملاحظات :<br/>التعامل مع اوليائك أو رؤسائك يجب أن يكون مختلف تماما عن تعاملك مع باقي الناس، اظهارك للتفوق يجب ان يكون محدودا ولا يتعدى تفوق وليك عليك<br/></p><hr id="ee20616b-e75e-4126-9be4-aec20fc4642c"/><p id="952f3171-5f5b-4c0e-88f0-cbdc09ef1045" class=""><br/>2 - لا تثق كثيرا بالأصدقاء ، تعلم كيف تستفيد من الأعداء.<br/>القصة :<br/>مايكل الثالث امبارطور بيزنطا و صديقه باسيليو الخائن<br/>ملاحظات :<br/>مع الاصدقاء يكون الحذر اقل لذا هم اكثر خطورة من الأعداء ( لأجل اسباب كثيرة .. اذا لم يكن عندك عدو يجب ان تصنع واحدا )<br/></p><hr id="71e0e3d6-1390-4e5d-8b9e-ea0005ac7286"/><p id="67ff347a-d372-47cc-bf9b-89ff13d64537" class=""><br/>3 - لا تبين نواياك أو تعلن عنها.<br/>القصة :<br/>مؤامرة الماسونية والمراحل الثلاثة<br/>ملاحظات :<br/>يمكن لكتم النوايا ان تسيطر على العالم بأكمله بدون ادراك من الجميع<br/></p><hr id="a651b851-5587-410b-9fbc-097ab40e020f"/><p id="bf9af762-1b3b-446f-9b74-f4102dfdd174" class=""><br/>4 - تحدث دوماً بأقل مما يجب.<br/>القصة :<br/>قائد الجيش ماركيوس و خطاباته الاخيرة .<br/>ملاحظات :<br/>الصمت هو لغة كل حكيم ، اذا كان كلامك نادرا أكثر سيكون مقبولا أكثر ،أن تقول شيء أحمق اسوء من ان تفعله ، (أصمت لتسمع)،(أسمع اكثر)،(من يسمع أكثر سيعرف ويتعلم اكثر)<br/></p><hr id="46128dfd-4764-4cf4-a68b-7ed34a7ef600"/><p id="dde8b6a1-9f9f-463c-8ca2-50120cdc9555" class=""><br/>5 - الكثير يعتمد على السمعة فاحمها بحياتك.<br/>القصة :<br/>القائد لي يانغ (التنين النائم) ضد 150 ألف جندي<br/>ملاحظات :<br/>السمعة هي عامل الاساس عند الانسان ،و ما ينتشر عنك هو ما يظهر في اعين الناس حتى لو كانت الحقيقة عكس ذلك ، يجب أن تظهر اسمك كمثال للقوة والصدق والذكاء<br/></p><hr id="1c9f1ffd-1df4-4259-84db-c4f838383318"/><p id="e3291065-bd90-46ed-b7b8-882e1baec078" class=""><br/>6 - كن نادرا ومتميزا مهما كلف الأمر.<br/>القصة :<br/>سيرك بيتي بارنوم و جذب الانتباه<br/>ملاحظات :<br/>كل شيء يقدر بمظهره ، لا تكن نكرة وسط الجموع ، تميز بأي شكل سواء كان بالغموض او الحيوية الزائدة ، المهم ان لا تضيع وسط الجموع ، لفت الانظار = القوة.<br/></p><hr id="45e2fb38-3141-4820-88eb-bbce9d144aaf"/><p id="18d2e1ec-7f9f-4cb9-a9db-e3e69c509ed1" class=""><br/>7 - استفد من جهود الاخرين لكن احتفظ بالتقدير لنفسك.<br/>القصة :<br/>تيسلا و نصب أديسون<br/>ملاحظات :<br/>الاستفادة من جهود دليل على القوة والسرعة ، الألاعيب السياسة والمنافسات موجودة في كل تفاصيل المجتمع <br/></p><hr id="872af824-410c-4011-b522-520ca40eae08"/><p id="3dcd4a98-81de-4cbb-8a3b-df3f6a38b6d4" class=""><br/>8 - استدرج الاخرين لفعل ما تريد.<br/>القصة :<br/>نابليون و خطة تاليران للاستدراج<br/>ملاحظات :<br/>(يمكنك اقناع من تريد ان يفعل ما تريد عن طريق توهيم الضحية بانها تقوم بفعل ما تريد بإرادتها ولمصالحها)<br/></p><hr id="51e67435-7c97-4396-b442-0c073582320b"/><p id="bea419a2-50ac-44f4-9eff-9185782a1ec6" class=""><br/>9 - انتصر بأفعالك وليس بكلامك.<br/>القصة :<br/>صانع الساريات و القنصل موسيانوس<br/>ملاحظات :<br/>لا تجادل شخص بمقام اعلى من مقامك ، لا تضيع وقتك في المجادلات عليك دائما بالافعال كاولوية<br/></p><hr id="0f377c51-8707-46bc-b411-dc14b2726335"/><p id="3cf5ac4e-d633-4e6e-854b-cbde3817ccf8" class=""><br/>10 - احذر من البائسين حتى لا تنتقل اليك عدواهم.<br/>القصة :<br/>ماري غيلبيرت و الضحية الكسندر دوغاريه<br/>ملاحظات :<br/>المشاعر معدية مثل الأمراض والأوبئة ، ساعد من يستحق المساعدة من البؤساء و لكن ابتعد عن البائسين الذي صنعوا بؤسهم بأنفسهم .<br/></p><hr id="24904d9c-d695-40d8-b980-febdfd411070"/><p id="c3957421-fac7-4c7e-b6cb-eb2375284133" class=""><br/>11 - تعلم أن تحتفظ باعتماد الاخرين عليك.<br/>القصة :<br/>جندي المرتزقة ، نظام الطب العالمي<br/>ملاحظات :<br/>للحفاظ على حريتك واستقلالك بين الناس يجب عليك ان تحتفظ باعتماد الاخرين عليك ليصلوا الى سعادتهم، لا تعلمهم الشيء الذي سيجعلهم يستغنون عن خدماتك، (سيد القوم خادمهم)<br/></p><hr id="66e9bb0e-6ab4-4579-84e6-917fc4adeaab"/><p id="1826cdcd-2204-493c-969d-a8d0892181ef" class=""><br/>12 - ادفع بالتي هي احسن، اكسب ولاء من يهمك أو ارفع عنك عدائه بالسخاء والصدق.<br/>القصة :<br/>الكابون و الكونت فيكتور ليستغ<br/>الملاحظات :<br/>الصدق والافعال الحميدة تغطي على العشرات من الافعال السيئة<br/></p><hr id="ec6a0a69-392e-4246-b3ca-a9b3ae59a468"/><p id="b07136d1-6eca-4b43-b865-b2e4b47fee78" class=""><br/>13 - لا تناشد الناس بالعطف او رد الجميل لكن استدرجهم مصالحهم.<br/>القصة :<br/>الحاكم كاستاروشيو المدين وعائلة البوغيو<br/>الملاحظات :<br/>اذا احجت مساعدة من احد لا تذكره بالماضي...بل اذكر له الفوائد التي سيحصل عليها لقاء مساعدته لك، لا تناشد بالعطف اوليائك الذين كسبوا سطوتهم بالخداع<br/></p><hr id="6899cb5a-3721-497f-b216-cec4a6f48416"/><p id="46cc3850-d73c-4a77-bd61-dcab99ac0bcf" class=""><br/>14 - تودد كصديق لتراقب كجاسوس.<br/>القصة :<br/>تاجر الفنون جوزف دوفين و منافسه<br/>الملاحظات :<br/>(اذا كان عندك منافسين أو اعداء يجيب ان تعرف اسرارهم ونقاط ضعفهم و يجب ان تعرف اخبارهم)،<br/>(يفضل دائما ان تكون انت الجاسوس بنفسك)<br/></p><hr id="507e390d-bbc2-41b3-a7ab-c346f73c6518"/><p id="9c4499b3-9306-4857-9b5b-acea5081fce2" class=""><br/>15 - أسحق أعداءك بدون رحمة.<br/>القصة :<br/>وو تشاو وامبراطوريتها<br/>الملاحظات :<br/>عدوك ان لم تقضي عليه نهائيا يمكن ان يتعافى الى ان يقضي عليك، امحق اعدائك بشكل كامل مادياً ومعنوياً<br/></p><hr id="da519406-34f8-411c-89ef-f8177317000f"/><p id="688e28ca-490d-444f-bb16-527ce4835234" class=""><br/>16 - اتقن فن الغياب لتزيد تقديرك ومكانتك.<br/>القصة :<br/>الفارس جيلوم ديبالون ومعشوقته<br/>الملاحظات :<br/>يجب ان تثبت حضورك قبل الغياب وترك تأثير خاص، كل ما زاد حضورك و كلامك كل ما قلت هيبتك، يجب ان تعرف متى تغيب حتى تعرف الناس قيمتك، عندما لا يكون هنالك سبب لغيابك تكون القاعد اكثر فعالية<br/></p><hr id="ef5e8ecb-d74f-4c43-b51a-73d7fa49ecb0"/><p id="2a76b2d4-e4cf-45eb-8451-e0be390c4b94" class=""><br/>17 - أرهب الاخرين بالمفاجئة وكسر التوقعات.<br/>القصة :<br/>منافسة محمد علي كلاي وجورج فورمان<br/>الملاحظات :<br/>كسر التوقعات تدخل الرعب والخوف في قلب منافسينك او اعدائك، الناس تحب ان تحفظ نمط معين عن من حولها لكي تشعر بنوع من السيطرة، (كن كالريح)<br/>(لا تستخدم هذه القاعدة مع رؤسائك ليرتاحوا معك)<br/></p><hr id="e6b6cdc5-f08a-4099-9274-0f3cd26b01e7"/><p id="da1fd51c-c3e4-4101-bc9f-3d4e36593388" class=""><br/>18 - لا تتخذ حصنا يمنعك عن الاخرين فالعزلة خطر يهددك ولايحميك.<br/>القصة :<br/>امبراطور الصين شن هوانغ تي<br/>الملاحظات :<br/>العزلة تمنعك من الحصول على المعلومات وتجعلك هدف سهل، العزلة تمنعك من الحصول على حلفاء<br/></p><hr id="9a43ed0f-75db-434a-a6d4-f83d16827710"/><p id="c00defed-2a5f-43a3-8a85-633028644fc5" class=""><br/>19 - تبين جيدا مع من تتعامل حتى لا تصيب احدا بجهالة.<br/>القصة :<br/>راعي البقر فرانج نورفليت<br/>الملاحظات :<br/>يوجد اصناف كثيرة من الناس و منها من يقضي حياته كلها لمحاولة الانتقام ، تأكد من اختيار فرائسك حتى لا تضع يدك في جحر الثعبان ...<br/>-أخطر خمس أصناف :<br/>المتكبر أو المتغطرس : سيكون شخص خطير اذا شعر انك تحاول جرح كبريائه الحساس ، وحتى اذا فعلت شيئا وظن انه استهزاء سيرد عليك بعنف شديد وبعدها لن يقنتع ابدا انك لم تقصد جرح كبريائه او السخرية منه، (لا تضيع وقته معه بالتفسيرات وابتعد عنه تماما)<br/>( ولا تهتم ان تأخذ منه شيء لانه لا يستحق المخاطرة )<br/>الخائر دائما : قريب من نمط المتكبر لكنه اقل اظهارا للعنف ومن الصعب ان تتعرف عليه ، هذا النوع لديه شخصية هشة ولا يثق بنفسه ، اذا احس بخداع شخص ما سيتصرف بشكل شخصي و يرد بضربات مخفية تقوى تدريجياً دون ان تلاحظ ، واذا احسست انك اذيت او خدعت شخص من هذا النوع يجب ان تبتعد عنه لفترة طويلة ، لانك ان بقيت معه سيستنزفك<br/>المرتاب : وهو خلط للنوعين السابقين ، لديه سوء ظن مع الجميع ، وسيظن ان الجميع يحاولين ايذائه ، وهو اقل الاصناف خطورة بسبب ان لديه اضطراب حقيقي ، وان صرت هدفا لشكوكه يجب عليك ان تراقبه وتحذر<br/>الثعبان : وهو من أخطر الاصناف ذو الشخصية الباردة ، عندما يُخدع لا يعطي اي ردة فعل بل سيحسب كيف سيكون رده لينفذ خطته بمهارة واتقان في الوقت المناسب و دون رحمة ، اذا اصبحت هدفا لهذا الثعبان فإما ان تقضي عليه تماما او تبتعد عنه تماما<br/>البسيط المتبلد : سيضيع وقت وجهد مخادعه لبساطته<br/>لإن الخداع يتطلب ذكاء وخيال عند الضحية<br/></p><hr id="576ccb4b-d3e0-4b88-a068-43d2f6644c69"/><p id="8071108d-5b45-4b00-b986-1e4349f3d457" class=""><br/>20 - لا تلزم نفسك بالولاء لأحد.<br/>القصة :<br/>الملكة اليزابيث وحكمها للملكة بدون وريث شرعي<br/>الملاحظات :<br/>عندما يكون هنالك صراع فقط الاغبياء الذين ينحازون الى طرف معين، المحافظة على الاستقلالية يعطيك افضلية عن الباقي و ستحصل على سطوة كبيرة<br/></p><hr id="cebb9636-1a7d-453c-a0c8-7f9f6179487f"/><p id="d5cf5e35-d280-463c-9e91-b8d0ff38d652" class=""><br/>21 - استدرج فرائسك بالتظاهر بأنك اقل ذكاء منهم.<br/>القصة :<br/>المنقبين فيليب ارنولد و جون سلاك<br/>الملاحظات :<br/>-لا يوجد أحد يحب أن يظهر بمظهر الغبي، الدهاء الحقيقي هو ان تظهر غبائك للشخص الذي تريد استدراجه لكي لا يشك في ما تكيده انت في الخفاء<br/></p><hr id="b0d40505-2a7d-4233-ae6c-63e8645e2297"/><p id="80e7fc0f-4f63-481d-89f6-25f06861c878" class=""><br/>22 - راوغ بالاذعان لتحول ضعفك الى قوة.<br/>القصة :<br/>الميلوسيين الذين لم يستسلموا للأثنيين بدافع الكرامة<br/>الملاحظات :<br/>عندما تكون الطرف الاضعف لا تقاوم او تقاتل بدافع الكرامة بل الافضل ان تختار الاذعان او الخضوع لان الخضوع يعطيك الوقت الكافي للتعافي وانتظار عدوك ليخسر قوته، لا تعطي المتجبرين متعة هزيمتك وسحقك<br/>الضعف ليس خطأ ويمكن للضعف ان يصبح مصدر قوة<br/></p><hr id="85595fe7-6c37-4015-b238-b81238751bb0"/><p id="a1571a5c-92f8-400e-98fc-06e5d8c3b7e8" class=""><br/>23- ركز ضرباتك حتى لا تبدد جهودك.<br/>القصة :<br/>الملك وو و وزيره الناصح العتيب<br/>الملاحظات :<br/>حافظ على قوتك وركزها بضربات قوية لان دائما القوة تتغلب على الكثرة<br/></p><hr id="5d112524-b098-4fc5-88ee-21d2d19e9dd6"/><p id="72ceb76c-5975-4456-809d-71d4b04bdfd1" class=""> <br/>24 - اتقن دور التابع.<br/>خصال رجل الحاشية او النخبة ستجعلك تزدهر في الواقع ، العالم الذي فيه السطورة والدهاء السياسي هو ما يحدد كل شيء ، هذه الخصال تجعل الشخص بارع في المكر والتملق واظهار الخضوع لرؤسائه ليستطيع ان يفرض سطوته على باقي الناس باكثر الطرق دهاء<br/></p><hr id="456c4756-87fe-4dbf-8eb4-1930bebdb5ce"/><p id="41bb3e01-6c99-4d8e-8329-0e98229cbd4c" class="">25 - أصنع لنفسك الهوية التي تكسبك السطوة.</p><p id="d8944e12-35ad-4f35-b0bb-78c486daec30" class="">القصة :<br/>أورول دوبين الكاتبة الذكر<br/></p><p id="1f2c1c02-ff8b-4666-b17c-6d3ea5e18b7f" class="">الملاحظات :<br/>ليس من الضروري أن تقبل بالدور الذي يتم فرضه عليك من المجتمع، يجب ان تبتكر هوية جديدة تكسبك اهتمام الناس واعجابهم، يجب ان تستخدم الاساليب المسرحية الدرامية لتزيد شعبيتك بين الناس<br/></p><hr id="08a2c7a2-9a38-4d81-9c3a-329e37637352"/><p id="51431f8d-fe73-40ab-a646-4d7ab9b3c997" class="">
+</p><p id="5b7119cc-73dc-405d-8e59-f5235dcae400" class="">26  - لا تلوث يديك بالأعمال الدنيئة.</p><p id="eabf990f-3aac-428d-81f0-ef73ed50186d" class="">القصة :<br/>سيزار بورجيا و الكبش روميرو ديوركور القاسي<br/>الحرب الاهلية في الصين بين الشيوعيين و القوميين<br/>الملاحظات :<br/>يجب دائما ان تظهر كمثال للتحضر والكفائة ويجب ان تتأكد ان مسيرتك خالية من الاخطاء و من الضروري ان تعرف كيف تتخد من غيرك كبش فداء او مخالب القط<br/></p><hr id="e192efdd-e1dc-4ace-8a79-43da8efc1818"/><p id="cc9698c2-2be8-4bcc-9421-88fa2ec28665" class="">
+</p><p id="8ad0e5ab-23dc-4308-b8b8-c0a6f8953020" class="">27 - ابتدع صيحة أو مذهبا ليتبعك الناس ويمجدونك.</p><p id="8dfbc4a7-0de4-4123-9b35-2f6f36aa43a5" class="">القصة :<br/>فرانسيسكو جويزيب المبتدع الكاذب.<br/>الملاحظات :<br/>اجعل كلامك بسيطا ويحتمل اكثر من معنى : يجب ان تلفت الانتباه بالكلمات ، يجب ان توعدهم بالتغير و ان يكون كلامك بسيط ولكن مختلط ومراوغ وعصري،<br/>خاطب الحواس والابصار وليس العقل والتفكير : بعد اجتماع الناس عندك لديك خطرين هما الملل والاستهزاء<br/>فيجب ان ترد وتتعامل معهم بطريقة الممثل في المسرح<br/>تعلم من الاديان الراسخة كيف تنظم جماعتك : اصنع لاتباعك طقوس ليفعلوها و ضع لهم مراتب والقاب مميزة على حسب اخلاصهم لمعتقداتك واطلب منهم التضحية التي تملأك بالقوة ، اخفي حقيقتك دائما تماما<br/>تكتم عن مصادر دخلك : لا تظهر التعطش للمال و اظهر لهم الترف الذي تعيش فيه عن طريق اقناعهم ان الترف الذي تعيش فيه ليس بسبب ما قدموه لك من تضحيات<br/>اصنع لجماعتك عدوا يوحدهم ويبغضونه : يجب صناعة معادلة : (نحن ضدهم) ليشعروا انهم اصدقاء<br/>( اذا لم يكن عندك عدو يجب ان تصنع واحد )<br/></p><hr id="d65d4471-a796-443b-8edc-76a1b78b75bb"/><p id="6d3e839a-38ce-4dbb-8594-a4c8999aaa9c" class=""><br/>28 - نفذ مخططاتك بجرأة ودون تردد.<br/></p><p id="598cb002-a552-49d2-87fa-2a85342fb193" class="">القصة :<br/>قصة الكونت فيكتور لوستيغ وبيع برج ايفل<br/></p><p id="69802787-47f0-4115-a815-c7402a854ef1" class="">الملاحظات :<br/>لا تمشي في طريق لا تعرف ما نهايته لان الشك والتردد يولد خوف و الخوف يولد الضعف ، الكل يحترم الشجاع والواثق من نفسه ولا احد يعطي قيمة للجبان ,<br/>الجرأة والتردد : الجرأة تيسر لك الامور لكن التردد يصنع لك الحواجز لا نهاية لها ، لذلك يجب ان تعرف كيفية التغلب على الجبن المفطور عليه الانسان ،<br/>أفضل الكذب اجرأه : كل منا لديه نقاط ضعف و جهود اعمالنا لا تكون كاملة ... لكن للجرأة والشجاعة تأثير سحري في اخفاء عيوبك ،<br/>تلتف الذئاب حول الفريسة الخائفة والمترددة : تمتلك الناس حاسة فطرية لاكتشاف ضعف غيرهم... فاذا اظهرت للناس في الانطباعات الاولى اي نوع من التنازل ستجد الذئاب تلتف حولك حتى من اكثر الناس طيبة ،<br/>النتائج تعتمد على نظرة الناس لك ،<br/>واذا عرفوا انك تميل للتنازل سيستنزفوك دون رحمة<br/>الجرأة تمنحك السطوة في ترهيب الاخرين  : الجرأة تجعلك أكبر واقوى من حقيقتك .. فعندما تظهر جرأتك فجأة دون ان تتوقعها الناس منك ستبدء الناس في ان تخافك وتهابك لانهم بباسطة غير متوقعين لحركاتك القادمة ،<br/>التقدم بقلب خائف يحفر قلب صاحبه : اذا لم تكن ثقتك بنفسك كاملة فستخلق الحواجز عندما تحاول فعل شيء يتطلب منك قرار سريعا او مصيريا،<br/>التردد يخلق الفجوات والجرأة تسدها : عندما تتوقف عن فعلك حتى تفكر قبل ان تتخذ قرارك .. فأنت اصلا تفتح ثغرة للناس حتى تفكر هي ايضا ، خوفك سيعدي الناس المترددة والغير متحمسة وهذا الشيء سيزيد الاحراج والارتباك ويبدأ الكل بالشك فيما بينهم و الجرأة ستسد هذه الثغرات والحماس وسرعة التحرك لن تترك للناس وقت للخوف والتشكيك،<br/>الجرأة تميزك عن القطيع : الجرأة تعطيك قوة حضور ومهابة وتجعلك تظهر في صورة استثنائية ومختلفة فالجبناء لن يلاحظهم احد بين الجموع لكن اصحاب القلوب التي لا تخاف سيبرزون في المقدمة ويلفتون الانظار، ومن يلفت الانظار تكون له السطوة اذ ان لا احد يستطيع ان يتجاهله او يتعدى عليه لان الكل يخاف منه<br/></p><hr id="c45f2b29-83dd-4589-8c45-0fd7afe0c1e0"/><p id="b4a93467-662b-4c5f-af63-c6fc10b45dec" class=""><br/>29 - خطط مسبقا لكل شيء من البداية الى الخاتمة.<br/></p><p id="2a9fd173-a5e6-42df-8b1a-dc9637f3f2ae" class="">القصة :<br/>لابروسيا ورئيس وزرائها بسمارك ونتيجة التخطيت<br/></p><p id="82888ca7-c701-4118-9ddf-803e868706ea" class="">الملاحظات :<br/>الامور تؤخذ من خواتمها ، ويجب ان تخطط بوضوح للطريق الذي سيوصلك للنهاية التي تريدها ، ولكن لا تنسى ان تحسب كل العقبات والحواجز التي قد تبعدك عن طريقك وهذا يحميك من انهاك التفكير المستمر بالاحداث التي قد تحدث مسبقا<br/></p><hr id="c59860eb-68ef-4710-90d2-87b712ba6cca"/><p id="85108bf2-6c23-4f1f-9abd-687aa42ead57" class=""><br/>30 - تصرف برشاقة ولا تظهر ابدا معاناتك في انجاز الأمور.<br/></p><p id="07abf772-e2af-4cd5-9338-135a5ea8769b" class="">القصة :<br/>صنوريكيو خبير الشاي والامبراطور هيديوشي<br/>المحلاظات :<br/>يجب أن تظهر انجازاتك على انها موهبة فطرية، يجب ان تخفي كل التعب والتدريب والتحايل لتصل الى انجازاتك وقاوم اغراء التحدث عن تعبك لتتجنب الشك<br/></p><hr id="8b31ac28-213a-42a9-a531-2205dd18df5f"/><p id="fd382c8f-749d-4626-a760-aca3518436d7" class=""><br/>31 - تحكم بأوراق اللعب، اجعل الاخرين يختارون من البدائل التي تحددها لهم.<br/></p><p id="dd4465a6-3975-4e26-b69b-7e007e8553d4" class="">القصة :<br/>إيفان الرابع(الرهيب) ومواجهة خراب البلد والبيجاوات<br/></p><p id="a9b8fd38-79b4-4bea-9c11-dba958c6a39f" class="">الملاحظات :<br/>من افضل طرق استدراج الناس والتحكم في إراداتهم هي التخيير بخيارات انت المتحكم فيها والمستفيد منها<br/></p><hr id="3930618c-2477-49af-8bda-35f50db124fd"/><p id="6a0a16bb-32bf-4a51-a935-9528b8e52e62" class="">
+</p><p id="612bb239-1984-4b51-be52-b32c8101a978" class="">32 - خاطب الناس في آمالهم وأحلامهم وليس واقعهم.</p><p id="3e7dc9ac-8c5c-4402-ba3a-cc6d24bb4c69" class="">القصة :<br/>مدينة البندقية المفلسة والأمل الكاذب براجادينو<br/></p><p id="9754e90c-ca1c-419c-9e52-9147415eed15" class="">الملاحظات :<br/>تعلم أن تحرك مشاعر الناس وآمالهم وأحلامهم لتكسب سطوة عليهم لأن الناس تحب تجاهل الواقع المر ... وتلحق من يصنع لهم الأحلام الشاعرية و يعزز لهم خيالهم الواسع<br/></p><hr id="fae1c60f-ba61-42d7-bf1a-021ea0a4d315"/><p id="8da5d8e4-38de-481d-970c-6718bcb46c6b" class=""><br/>33 - أكتشف نقاط الضعف لدى كل من تتعامل معهم.<br/></p><p id="d23dc43c-9465-4456-bb4f-90139c8990af" class="">القصة :<br/>قصة الكونت فيكتور لوستيغ و هيرمال لولار الضعيف<br/></p><p id="258ad827-1c44-43ca-8d54-73c4011f6189" class="">الملاحظات :<br/>كل انسان لديه نقطة ضعف و قد يكون على شكل ضعف داخلي أو رغبة أو متعة أو خوف ...<br/>النقاط المهمة :<br/>1 - انتبه للتلميحات والايمائيات اللاشعورية :<br/>لا يوجد على الأرض من يستطيع اخفاء سر لأنه اذا سكت سيتحدث جسده عوضا عنه من خلال لغة الجسد<br/>2 - اكتشف الطفل البائس داخل الرجل :<br/>اغلب نقاط الضعف تتشكل في الطفولة فممكن ان يكون الشخص مدلل في صغره او ممكن ان يكون محروم من مشاعر كان يحتاجها.. ولكن هذه الاشياء تلاحق الشخص<br/>3 - اكتشف الحلقة الضعيفة في السلسة :<br/>أحيانا يجب ان تبحث عن الشخص الضعيف نفسه وليس صفة الضعف<br/>4 - اشبع القلوب الخاوية او الفارغة :<br/>استهدف من لديه الضعف الداخلي والتعاسة<br/>5 - استغل المشاعر الجامحة :<br/>يمكن للمشاعر الجامعة ان تتخذ شكل الخوف الارتيابي<br/>الذي يكون مبالغ فيه في المواقف العادية او الجشع او الغرور او الحقد ، الاشخاص الذين يقعوا في هذه المشاعر لا يستطيعون التحكم فيها لذلك تستطيع وقتها ان تكون انت الناصح الوحيد لهم الذي يساعدهم في السيطرة عليها ووقتها ستتمكن من السيطرة عليهم<br/></p><hr id="105ddc51-bb34-45f9-9d7a-69aaacde4f2b"/><p id="bd2f7d86-6e39-4c71-be57-0c4a00872f7a" class=""><br/>34 - لا تتدنى ابدا في تصرفاتك، تصرف كملك تعامل كالملوك.<br/></p><p id="39443872-030d-4c36-9ff5-09e6877ceb7b" class="">القصة :<br/>الملك لويس فيليب المتدني<br/></p><p id="5a00bc35-dd2f-4935-9098-1dfca255118e" class="">الملاحظات :<br/>المكانة التي تضع نفسك فيها هي غالبا نفس المكانة التي ستضعك الناس فيها، لذلك لا تتعامل بذل وتدني وضعف لكي تتجنب احتقار الناس ، لذلك تصرف كالملوك الذين يعاملون انفسهم بالعزة والوقار فيجبرون الناس أن ينظرون اليهم برهبة وتعظيم، ارتق بتصرفاتك<br/></p><hr id="aa88a067-e309-4633-a293-3d922868148f"/><p id="6d0c9411-5739-4833-8f58-70c0da73f585" class=""><br/>35 - اتقن فن اختيار التوقيت المناسب.<br/></p><p id="837b44f4-c3ef-4d5c-99b3-c4fd6de45d00" class="">القصة :<br/>جوزيف فوشيه واستغلاله للوقت المناسب<br/></p><p id="3252bcc7-fc43-4fbe-81ab-a3f2e7386234" class="">الملاحظات :<br/>ليس عليك الظهور انك متسرع او متعجل لان هذا سيعطي طابع من الناس على انك ارعن وغير قادر على التحكم في مشاعرك او في توقيت الاحداث، كن دائما صبور حتى الناس تلاحظ ثقتك، كن مثل المحقق الذي يترقب بثقة اللحظة المناسبة بعدها اضرب بدون تردد<br/></p><hr id="38dcd540-03a7-455d-bccc-326b7b04c0ae"/><p id="5dc2e23e-b1da-4591-9c4e-af05fd76a214" class="">
+</p><p id="4148d585-9837-4adb-9e4c-c12e305ee645" class="">36 - احتقر ما لا تستطيع أن تناله ... التجاهل هو خير انتقام.</p><p id="26f195f0-1e70-45fe-8f28-a9bab9545eae" class="">القصة :<br/>المتمرد رئيس العصابة المكسيكي بانشوفيلا<br/></p><p id="2543c07d-fddf-415b-8cd0-b08112a3922a" class="">الملاحظات :<br/>الانتباه لمشكلة تافهة تعطيها اكبر من قيمتها فلا تعطيها جهد بل احتقرها ، اذا اردت شيء احتقره<br/></p><hr id="8b959e8b-dd9e-41bf-b139-ea1ef74f447f"/><p id="d4538f67-6884-4ddb-b6f6-b644209dd0b3" class=""><br/>37 - تعلم دائما كيف تبهر العيون.<br/></p><p id="714d84ea-8a73-4e82-a0a3-d1e05941e2f7" class="">القصة :<br/>الدكتور فايزلدر و اشعة القمر الليلة<br/></p><p id="6c3f4bc7-c6a2-48bc-aa16-8fa6805aa871" class="">الملاحظات :<br/>-ابهار العين يسرق القلب، يجب أن تصنع لنفسك اجواء مميزة وخاصة بك حتى تخطف الانظار و تفرض وجودك على الملأ، انبهار الناس بك يعميهم عن تحركاتك<br/>( لفت انظار الناس هو عملة العالم الجديد )<br/></p><hr id="e0f17215-d40e-4d50-ab86-ad3cc8ba4b6a"/><p id="7e5cb745-27cb-43a4-8357-1400fc8a0f83" class=""><br/>38 - اقتنع بما تريد وتصرف بما يريده الاخرون.<br/></p><p id="6fbd8e28-52c3-4a93-b5e7-757e0cf3679c" class="">القصة :<br/>الأمير الأسبرطي بوسانيوس وافكاره الجديدة<br/></p><p id="41307360-a731-4e8e-9702-da4be9bceef5" class="">الملاحظات :<br/>لو اظهرت اختلافك بالتصرفات والكلام و بدأت بالترويج لافكار جديد وغريبة عن المجتمع سيعتقد الناس أنك تحتقرهم وتتكبر عليهم لهذا سيحاولون تدميرك، الافضل لك أن تحترمهم و لا تظهر عبقريتك لهم<br/></p><hr id="48aa91a6-8b07-4af8-82ed-147279c815e6"/><p id="074854a8-613c-4571-bb01-402c415e5a69" class=""><br/>39 - حرك الماء الراكد لتدخل الاسماء بشباكك.<br/></p><p id="1b66f285-7aee-42a2-943c-6a02a20b948b" class="">القصة :<br/>نابليون وتاليران ومصيدة المشاعر<br/></p><p id="fadde4d1-a78b-477a-916c-755eb07067f8" class="">الملاحظات :<br/>العصبية والانفعال من أهم الاخطاء الاستراتيجية التي تسبب الخسارة، كن رزين وهادئ، يجب أن تفقد أعصاب عدوك لتكون انت الشخص الهادئ والوقور للتفوق عليه<br/>( واجه عدوك بكل ما يهدد كبريائه ليفقد أعصابه )<br/></p><hr id="32854e3b-1c54-4190-9ad0-1dddc455ecbf"/><p id="199259b9-ba6e-48ea-ade9-35d6c0690088" class=""><br/>40 - ازهد في كل ما يعطى لك مجانا.<br/></p><p id="dcdcf67d-3fe6-4c71-bd35-595cda26a5bb" class="">فعالية :<br/>لعبة المفاتيح الأربعة ...<br/></p><p id="50e56cf0-d990-4d46-8a33-9203d382a9a0" class="">الملاحظات :<br/>انتبه من اي شي يعطى لك مجانا .. لانه قد يكون وسيلة لاحراجك أو لخداعك أو للضغط عليك اخلاقيا، ابق حرا من هذا الحمل وادفع بسخاء لكل شيء ترى ان له قيمة، لا تكن بخيلا وكن سخيا دائما<br/>لعبة المفاتيح الاربعة :<br/></p><p id="09b4f11a-9ea0-4465-8c09-69cd9e999c9c" class="">المفتاح الأول : لا تكن حوت جشع، حيتان الجشع هم أشخاص لا ينظرون الى أي جوانب انسانية ويتعاملون بقسوة وبرود ويعاملون الناس كأدوات فقط.<br/>المفتاح الثاني : لا تكن عبدا للمساومة ولا تتعامل معهم، أصحاب السطوة يحكمون على الأشياء من سعرها ولكن السعر لا يعني المال فقط بل يعني راحة البال والهيبة والوقار، لا تبحث دائما عن ارخص الأسعار ...<br/>المفتاح الثالث : لا تكن سادي ولا تتعامل معهم، الساديين يتعاملون مع المال بنذالة ليظهرون قذارتهم مثل المماطلة في ارجاع الدين ، اذا عملت عندهم ستراهم يتدخلون في امورك، واذا اردت التعامل معهم فكر في خسارة القليل من المال لتتخلص من قذاراتهم<br/>المفتاح الرابع : لا تكن سخي دون تفكير وحساب، للكرم يوجد وظائف محددة ومنها جذب الناس و كسب محبتهم و تكوين الحلفاء، لكن يجب استخدام المال بشكل استراتيجي اذ يجب أن لا تصرف المال الا لغرض سيعود عليك بالنفع، لا تعطي الكل دون حساب لانه لن يعود عليك بالنفع لان الناس ستمل منك و هذا الفعل سيضرك ...<br/></p><hr id="9ae0d6f3-d1de-4ef8-9d16-5241772f7f36"/><p id="11414e0e-41ab-4489-9323-4f667afa6fb1" class=""><br/>41 - تجنب أن تحل محل رجل عظيم.<br/></p><p id="60432283-c997-4ef4-891f-0b3ae4a79e27" class="">القصة :<br/>الخليفة لويس الخامس عشر المراهق الفاشل<br/></p><p id="3a8b5e8a-f295-4cc7-af76-f502359a1b0d" class="">الملاحظات :<br/>الناس تحترم الأصل وتكره التقليد، لا تلتزم في ماض لست انت صانعه والأفضل لك أن تؤسس هويتك و مستقبلك الخاص، اصنع صورتك المميزة<br/></p><hr id="ac4a6d0b-1b70-48f3-8ecd-b71775954df7"/><p id="2608e5c0-e639-41c0-9e43-f4e3585e330c" class="">
+</p><p id="82134e56-5aa2-4b38-88a7-6433b64def18" class="">42 - اضرب الراعي لتشتت الخراف.</p><p id="43e4d818-def1-4d2c-aa77-3c1c16589c83" class="">القصة :<br/>أثينا وفكرة لوح الأثنيين العبقرية<br/></p><p id="175c8339-1f92-4dc0-9a48-35dc6c910466" class="">الملاحظات :<br/>وراء المشاكل والاضطرابات الكبيرة شخص واحد حاقد يستطيع نقل حقده للناس الثانية، يجب ان لا تترك هذه الناس الحقودة دون عقاب لكي لا ينتشر الحقد وتتجنب مشاكل قد لا تستطيع تحملها في وقت اخر ... لذلك ( اضرب الراعي لتشتت الخراف )<br/></p><hr id="e7d9f2fc-16bb-487d-94c6-2587363200af"/><p id="e92d6070-9e41-4e30-bdfd-881653385bd6" class=""><br/>43 - لا تأخذ الناس بالقهر ... بل بالتودد والاقناع.<br/></p><p id="f5d69ddf-c26a-4a9c-a2ee-e4937e0935fa" class="">القصة :<br/>لويس السادس عشر وزوجته الملكة ماري المبذخة<br/></p><p id="8e277423-bf1b-4d1f-8cc3-4f0f3eb7e8c4" class="">الملاحظات :<br/>طغيانك وتعاملك السيء مع الناس سيدمرك في النهاية<br/>لذلك يجب عليك أن تتعلم كيفية استدراج الناس ليفعلوا الشيء الذي تريده انت، اغواء الناس يحتاج ان تفهم نفسية ونقاط ضعف الناس الذين تتعامل معهم<br/>(اقنع الطرف الاخر انه سيحصل على القيمة الأكبر دائما)<br/></p><hr id="e6524371-6bc3-44d5-a44e-faf52354bedb"/><p id="0ec42c3e-773b-4f61-a7f6-00170631f671" class="">
+</p><p id="a46c73c7-2dd7-4754-b574-923fdf167abe" class="">44 - جرد عدوك وافقده توازنه باستراتيجية المرآة.</p><p id="7d8bd40c-4a8b-4f10-8b6f-8db549e1a1fb" class="">القصة :<br/>نابليون وخدعة فوشيه المماثلة<br/></p><p id="a1ec4f97-d0a7-4c8b-a05a-9587627b4abd" class="">الملاحظات :<br/>المرآة تعكس الواقع لكن تشوهه ايضا و لهذا تعتبر المرايا ادوات ممتازة للخداع واستراتيجية المرآة هي أن تحاكي أفعال الناس حتى تخوفهم أو تفتنهم ..الخ<br/></p><hr id="89e47fbd-93b9-44c8-b00f-dd0a1599da19"/><p id="953ddd04-68e6-475b-a7b8-00dece94b7cd" class=""><br/>45 - ادعوا الناس للتغيير ولكن لا تغير كثيرا في خطوة واحدة.<br/></p><p id="88c5bc98-54c3-4771-8f3c-a5adaa7a7a81" class="">القصة :<br/>توماس كرومويل والملك الجشع<br/></p><p id="d3621bad-48ab-4cc9-b964-1bd063c9e0c0" class="">الملاحظات :<br/>جميعنا نعلم أهمية التجديد والتغيير لكن في الواقع نحن نتشبث كثيرا في الأشياء التي اعتدنا عليها لذا فرض التجديد أو التغيير على الناس سيصدمهم ويدفعهم للثورة لذا أظهر التجديد على أنه تطور تاريخي<br/></p><hr id="95404563-a344-4000-89bb-1476ead71dde"/><p id="33657e51-c6f0-4595-864c-2562a02cc9a7" class="">
+</p><p id="e27e1748-9a6c-4259-9c13-b2869ebfa96e" class="">46 - لا تبالغ في اظهار تفوقك ونعمائك.</p><p id="ec20305c-8028-417e-b5d4-77db8974698f" class="">القصة :<br/>جو أورتون و كينيف هالويل ومشروع الحسد<br/></p><p id="7d58d075-d4ad-4a3d-8008-4592773aae0b" class="">الملاحظات :<br/>من الخطر عليك أن يراك الناس أنك متفوق عليهم دائما والأخطر من هذا أن تظهر لهم أن لا عيب فيك<br/>لأن الحسد سيولد الكره لك (لذا أظهر عيب ليس فيك)<br/></p><hr id="cf62c0f2-731b-4722-92db-7f74e8fbf25a"/><p id="dad8eaed-1993-40b2-9798-5dc3be0dbc7a" class=""><br/>47 - تعلم أن تكبح حماسك عند الانتصار.<br/></p><p id="4297f342-f43f-48f6-8671-0559d63bccd0" class="">القصة :<br/>سايروس ملك العالم و غروره الزائد<br/></p><p id="06264303-a512-4c1c-91ef-7de4ef91b0a8" class="">الملاحظات :<br/>لحظات الانتصار هي أخطر اللحظات لإن حماس النصر قد يولد غرور، لا تسمح للنصر أن يسلبك عقلانيتك بل يجب عليك التأني والتخطيط الاستراتيجي، حدد أهدافك وعندما تحققها توقف ولا تترك نفسك للغرور<br/></p><hr id="dc948001-0d00-48f7-9842-c34e6b7e1ef4"/><p id="0d8f8ce6-3732-496e-b44c-d08b955cf671" class="">
+</p><p id="82004fb4-b1ae-49f9-ac17-d5dae90bd785" class="">48 - ساير الأحداث دائما ولا تتجمد في قالب محدد.</p><p id="48d04df1-fcfa-48a0-a58c-c882dcf4c0b7" class="">القصة :<br/>القوميين والشيوعيين وهجمات العشوائية الرابحة<br/></p><p id="13d8860f-c708-49ae-a370-83999a4b73c9" class="">الملاحظات :<br/>جمودك على اسلوب محدد يسمح لعدوك بأن يقرأ تحركاتك، لهذا يجب عليك التخطيط لكل شيء قبل فعله،لا تعطي فرصة لأعدائك أن يعرفوا خطوتك القادمة<br/>(كن دائما كالماء لا شكل عندك ولا حركة محددة)<br/></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

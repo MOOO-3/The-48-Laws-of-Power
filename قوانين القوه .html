@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>قوانين القوه</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="eacba692-d43e-4f68-92c8-185ef6415f78" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/power_red.svg"/></div><h1 class="page-title">قوانين القوه</h1><p class="page-description"></p></header><div class="page-body"><div id="820230d9-526b-4d53-8820-cfe1b70facf6" class="column-list"><div id="e3500694-6ef9-496d-87fa-afa885f91244" style="width:56.25%" class="column"><ul id="c78d3ac7-f4e2-4a35-ba68-724199f23fd2" class="toggle"><li><details open=""><summary><mark class="highlight-red">هجومي</mark></summary><ol type="1" id="51a001d3-340e-4dd3-acc7-0eaabf258d4a" class="numbered-list" start="8"><li>استدرج الآخرين لفعل ما تريد </li></ol><p id="e772906c-043f-479b-83da-2e8b058f9ae7" class="">17. ارهب الآخرين بالمفاجأة وكسر التوقع</p><ol type="1" id="9df11723-309d-4e1f-99b6-c09f1b94b413" class="numbered-list" start="21"><li>استدرج فرائسك بالتظاهر بأنك أقل منهم ذكاء</li></ol><p id="85d4f002-d6f1-4b6c-ac8b-78afe0b4ec33" class="">27. ابتدع صيحة او مذهبا ليتبعك الناس ويمجدونك</p><ol type="1" id="856adee3-962c-4ac8-a731-a415ffa5a487" class="numbered-list" start="31"><li>تحكم بأوراق العب: اجعل الآخرين يختارون من البدائل التي تحددها لهم</li></ol><ol type="1" id="fbdf578d-cc44-43f1-bc57-e66ce90e699a" class="numbered-list" start="32"><li>خاطب في الناس آمالهم وأحلامهم وليس واقعهم</li></ol><p id="01550209-1e99-487c-88e8-05cf0421a376" class="">39. حرّك الماء الراكد لتدخل الأسماك في شباكك</p></details></li></ul><ul id="ec8140f8-dd71-4d8c-8bae-dccc561a2159" class="toggle"><li><details open=""><summary><mark class="highlight-blue">دفاعي</mark></summary><ol type="1" id="3dba14dd-f76f-40aa-b569-a452f34ba13d" class="numbered-list" start="1"><li>لاتُظهر ابدا تفوقك علي وليّك</li></ol><p id="e2fb4af8-856f-4082-8991-b0b6e0a5dae2" class="">10.  احذر من البائسين حتي لا تنتقل اليك عدواهم</p><p id="05da35e0-e562-455a-9092-17dc0645432e" class="">18.  لا تتخذ حصونا تمنعك من الآخرين فالعزلة خطر يهددك ولا يحميك</p><p id="f03720de-2a0c-40dd-9b4d-7073cf0158df" class="">40.  ازهد في كل ما قد يُعطي لك مجاناً</p><p id="bf8cb3b3-3633-4a18-bb17-58d46b234429" class="">41.  تجنب ان تحل محل رجل عظيم</p></details></li></ul><ul id="b6703065-b8ff-4749-b4b7-64c3519dca17" class="toggle"><li><details open=""><summary><mark class="highlight-purple">هجومي أو دفاعي</mark></summary><ol type="1" id="e9d483fa-386b-4284-9bad-5be8ba1eb1be" class="numbered-list" start="2"><li>لا تثق كثيراً في أصدقائك وتعلم أن تستفيد من أعدائك</li></ol><p id="1a631f27-f845-4671-b212-b3f7a35316f2" class=""> 5. السمعة عماد السطوة دافع عنها باستماتة</p><ol type="1" id="9602e756-4020-4c63-be3c-48f54be0d51e" class="numbered-list" start="9"><li>انتصر بأفعالك وليس بكلامك</li></ol><p id="7c0d4df8-4b23-4e2f-9d53-5b2de0f618d5" class="">13. لا تناشد في الناس العطف أو رد الجميل لكن استدرجهم بمصالحهم</p><ol type="1" id="44a88794-446c-48d7-93fe-2f61cb763ecf" class="numbered-list" start="19"><li>تبيّن جيدا مع من تتعامل حتي لا تصيب أحدا بجهالة</li></ol><p id="2a4371e9-e0ed-4e95-8f5b-730b29601d10" class="">24. ادقن دور التابع: تحلى بخصال رجل الحاشيه البارع</p><ol type="1" id="32512d52-abe2-4d72-a986-68bbc523d5e4" class="block-color-default numbered-list" start="25"><li>اصنع لنفسك الهوية التي تكسبك السطوة</li></ol><p id="6281be17-1f80-4438-ac96-f5b0d7925130" class="">29. خطط مسبقا لكل شئ من البداية حتي الخاتمة</p><ol type="1" id="30d010cd-c4bd-495d-812f-f9eef473b1b0" class="numbered-list" start="33"><li>اكتشف نقاط الضعف لدي كل من تتعامل معهم</li></ol><p id="0d5c43bc-9a47-406f-a60b-434c8baacc79" class="">35. اتقن فن اختيار التوقيت المناسب</p><ol type="1" id="b441a43e-76df-402d-b49a-abf45c7d3aeb" class="numbered-list" start="36"><li>احتقر ما لا تستطيع أن تناله: التجاهل هو خير انتقام</li></ol><p id="60b38217-9120-4c74-af29-744bbaa410de" class="">43. لا تأخذ الناس بالقهر بل بالتودد والإقناع</p><ol type="1" id="3f5845fb-4806-479f-a30e-f4c013975393" class="numbered-list" start="44"><li>جّرد عدوك وافقده إتزانه باستراتيجيه المرآة</li></ol><ol type="1" id="664c24e1-4b6d-4e74-922c-43b58cf76e9a" class="numbered-list" start="45"><li>ادع الناس للتغير ولا تغير كثيرا في خطوة واحدة</li></ol><p id="5512007b-5fe9-4126-a2a4-19ba4fa823e9" class="">48. ساير الأحداث دائما ولا تتجمد في قالب محدد</p></details></li></ul><ul id="ebdc2a6d-a1c7-4b8e-a81d-67951948cd0a" class="toggle"><li><details open=""><summary><mark class="highlight-yellow">هجومي يمكنك الدفاع فيه</mark></summary><ol type="1" id="e9529488-9251-4cea-860a-41f78372e5ab" class="numbered-list" start="6"><li>الفت إليك الأنظار بأي ثمن</li></ol><ol type="1" id="79c98a3d-9f65-4d3d-81a8-2c39402fa70a" class="numbered-list" start="7"><li>استفد من جهود الآخرين؛ لكن احتفظ لنفسك بالتقدير</li></ol><p id="4cede3ab-31be-4bc8-8744-61cc886a23fc" class="">14. تودد كصديق لتراقب كجاسوس</p><ol type="1" id="a090db04-7744-4d88-8c14-53403b71daef" class="numbered-list" start="15"><li>اسحق اعدائك دون رحمة</li></ol><p id="1eabd82d-3945-46bd-b3d2-fee4ef4ae419" class="">23.ركز ضرباتك</p><ol type="1" id="192d8c1b-dafd-45b1-ac12-adb05931cf6b" class="numbered-list" start="28"><li>نفذ مخططاتك بجرأة وبدون تردد</li></ol><p id="711c6d27-e445-467a-b8ba-eda33985cfea" class="">37. تعلم دائما كيف تُبهر العيون</p><ol type="1" id="b870accf-c94b-4dc9-b123-cc5668ccdd1c" class="numbered-list" start="42"><li>اضرب الراعي لتتشتت الخراف</li></ol></details></li></ul><ul id="2a5c2c36-3458-4f12-a110-2901359cac90" class="toggle"><li><details open=""><summary><mark class="highlight-teal">دفاعي يمكنك الهجوم فيه</mark></summary><ol type="1" id="b8dccd17-fcb9-496c-8543-cf93857a278e" class="numbered-list" start="3"><li>استعن علي تحقيق أهدافك بإخفاء مقاصدك</li></ol><ol type="1" id="63b391e0-f7a0-454d-bab8-1047e7d3a893" class="numbered-list" start="4"><li>اقتصد دائما في كلامك</li></ol><p id="ba7bc832-0b69-4aee-adef-7ac410b6dbaf" class="">11. تعلم أن تحتفظ باعتماد الآخرين عليك</p><ol type="1" id="7f440203-f043-4726-bc48-6feb38b3a1c0" class="numbered-list" start="12"><li>ادفع بالتي هي أحسن: اكسب ولاء من يهمك أو ارفع عنك عداءه بالسخاء والتلطف</li></ol><p id="7ace0822-d92c-4cde-879b-b716ef162ce0" class="">16. اتقن فن الغياب لتزيد وقارك ومكانتك</p><ol type="1" id="3d43963e-1172-48d2-8bcb-af7123176d28" class="numbered-list" start="20"><li>لا تلزم نفسك بالولاء لأحد </li></ol><p id="4c3cc04f-1794-49f7-9ab9-956424f17682" class="">22. استخدم تكتيك الإذعان لتحوّل صعفك الي </p><ol type="1" id="a3adff1a-3197-4c4b-a865-131c71301401" class="numbered-list" start="26"><li>احرص علي إخفاء أخطائك</li></ol><p id="391876e5-2bd0-4f65-84a5-08652f34085d" class="">30. تصرف برشاقه ولا تُظهر أبدا معاناتك في إنجار الأمور</p><ol type="1" id="9e18beab-03cb-4142-ba51-81032ab26e42" class="numbered-list" start="34"><li>لا تتدني أبدا في تصرفاتك: تصرف كملك تُعامَل كملك</li></ol><p id="69c058d8-5379-4452-9fb1-345da1589776" class="">38. اقتنع بما تريد وتصرف بما يريده الآخرون</p><ol type="1" id="71c959da-70ca-4361-8483-47113bb645f8" class="numbered-list" start="46"><li>لا تبالغ في إظهار تفوقك ونعماءك</li></ol><ol type="1" id="f01656ba-e707-42ef-ab7f-74946abd6aee" class="numbered-list" start="47"><li>لا تتجاوز ما خططت له تعلم ان تكبح حماسك عند الانتصار</li></ol></details></li></ul><h3 id="e0f21c27-fa7d-4c1b-9482-200efdfdd22c" class=""><mark class="highlight-orange">قواعد خاصة</mark></h3><ul id="ba4c8d0d-c535-4a5b-a23c-631b6f452966" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">( </mark><mark class="highlight-teal">تحدث دوماً اقل مما يجب</mark><mark class="highlight-default"> ) الصمت وجذب الانتباه</mark></li></ul><ul id="195b0cf6-ba6e-4dee-8924-642be2765d4d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">( </mark><mark class="highlight-teal">لا تظهر نوياك او تعلن عنها </mark><mark class="highlight-default">) اخفاء النوايا</mark></li></ul><ul id="a6bf6754-e9b4-4519-9d75-1261070010e5" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-red">استدرج الاخرين لفعل ما تريد</mark> ) الأقناع</li></ul><ul id="c2217075-f519-464b-b59c-441444eaa70f" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-yellow">تودد كصديق لتراقب كجاسوس</mark> ) المراقبه </li></ul><ul id="eba9abfd-df1f-44ec-b220-4c933c13efb3" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-purple">اتقن دور التابع</mark> ) السلطه و التحكم فيها </li></ul><ul id="68dce351-c59b-4c52-aac7-1a3862e6dc25" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-purple">اصنع لنفسك الهوية التي تكسبك السطوة</mark> ) اخفاء الحقيقة والاختفاء ولبس القناع</li></ul><ul id="acb67c4b-7e57-428f-8c96-513f8c236494" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-red">ابتدع صيحه او مذهباً ليتبعك الناس ويمجدونك</mark>) الولاء من الناس </li></ul><ul id="4c84bd7b-3cbb-4485-b287-3838604acd76" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-yellow">نفذ مخططاتك بجرأة وبدون تردد</mark> ) التشويش و السرعه</li></ul><ul id="6e222fe9-00c6-4096-9901-5498935758bb" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-red">تحكم بأوراق اللعب، اجعل الأخرين يختارون من البدائل التي تحددها لهم</mark> ) الخيارات الوحيده للناس</li></ul><ul id="1cbd8d1c-66ca-4141-bf9d-cf49703f70ae" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-blue">ازهد في كل ما يعطي لك مجاناً</mark> ) الحمايه القصوي</li></ul><ul id="47cd8abc-bcc0-46b3-bc34-c1d354e0a1ce" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-purple">جرد عدوك وافقده توازنه بأستراتجية المرآة</mark> ) التحكم في العدو</li></ul><ul id="bcaa82cb-ef76-4b9d-b984-85a3fc50138e" class="bulleted-list"><li style="list-style-type:disc">( <mark class="highlight-purple">ساير الأحداث دائما ولا تتجمد في قالب محدد</mark> ) وهم العشوائيه و السطوة القصوي</li></ul><p id="39ecd552-cad8-451c-9768-a2144bb7f60c" class="">
+</p></div><div id="f46ca335-c9df-41f8-84d6-77f434b8037d" style="width:43.75000000000001%" class="column"><h3 id="ffbb1c6d-ad13-4d1a-91a4-c31654d4182e" class="">معاني الألوان</h3><ol type="1" id="b156c2e3-b896-4a8b-b871-5ef45f207b11" class="numbered-list" start="1"><li>الاحمر<ul id="0f061f07-0b6a-4f27-974f-d651c58fbba8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">هجومي</mark></li></ul></li></ol><ol type="1" id="166e3ece-8e39-48e0-928e-58661a0da4b2" class="numbered-list" start="2"><li>ازرق<ul id="4024d2be-6905-44e4-80bb-39366be9c6f1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue">دفاعي</mark></li></ul></li></ol><ol type="1" id="8e7f1e78-48ce-4c05-be34-0065ca13aa82" class="numbered-list" start="3"><li>بنفسجي<ul id="22a74127-a42c-4c24-bc0a-032342ce8396" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-purple">هجومي او دفاعي</mark></li></ul></li></ol><ol type="1" id="4fe5461c-b699-4a55-9225-45c266a597e4" class="numbered-list" start="4"><li>اصفر<ul id="7b13a5e8-37b7-4acd-bed7-2c91437f1bbb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow">هجومي يمكنك الدفاع فيه</mark></li></ul></li></ol><ol type="1" id="2c4c7823-65ce-4d4d-9c57-cdc1345337c8" class="numbered-list" start="5"><li>اخضر<ul id="b13e8708-35d8-4d5a-a823-ac65e562d8a8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">دفاعي يمكنك الهجوم فيه</mark></li></ul><p id="e4196500-c480-469d-bde9-43684f6bfa33" class="">
+</p></li></ol></div></div><hr id="d38ea245-b091-4e2d-9d20-76b6771927bd"/><figure id="3297e0a5-0008-4d6e-8708-479fe5564bc9" class="link-to-page"><a href="https://www.notion.so/3297e0a500084d6e8708479fe5564bc9?pvs=21">القواعد بالترتيب و التلخيص</a></figure><p id="07990f6d-87b1-4a06-b5db-582e8c21176a" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
